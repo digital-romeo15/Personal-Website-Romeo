@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", sans-serif;
+      background: #111;
+      color: #eee;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #0d0d0d;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    header .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    header nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    header nav a:hover {
+      color: #fff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .contact-icons a {
+      font-size: 2.2rem;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .contact-icons a:hover {
+      transform: scale(1.15);
+      color: #1db954;
+    }
+
+    form {
+      background: #181818;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      outline: none;
+      margin: 10px 0 20px;
+      border-radius: 8px;
+      background: #222;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    form textarea {
+      height: 140px;
+      resize: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #1db954;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #17a147;
+      transform: translateY(-2px);
+    }
+
+    /* Fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Icons */
+    .icon {
+      width: 40px;
+      height: 40px;
+      filter: invert(1);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Romeo Fember</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="container fade-in">
+  <h1 class="section-title">Contact Me</h1>
+
+  <!-- Social Icons -->
+  <div class="contact-icons">
+  
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/romeo-fember-4733742a4/" target="_blank" rel="noopener noreferrer" title="Visit my LinkedIn profile">
+      <img src="LinkedIn logo.png" class="icon" alt="LinkedIn" />
+    </a>
+  </div>
+
+  <!-- Contact Form -->
+  <form action="https://api.web3forms.com/submit" method="POST">
+
+    <input type="hidden" name="access_key" value="710e40eb-b626-4b92-9d90-044e33f2848c" /> <!--SMTP access key-->
+
+    <input type="text" name="name" placeholder="Your Full Name" required>
+
+    <input type="email" name="email" placeholder="Your Email Address" required>
+
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+
+    <textarea name="message" placeholder="Your Message..." required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+
+<script>
+  const fadeElements = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  fadeElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

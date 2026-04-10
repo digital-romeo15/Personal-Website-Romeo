@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Home</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Personal portfolio — IT student & aspiring software developer." />
+  <style>
+   
+    :root{
+      --bg1: #0f172a; /* dark navy */
+      --accent: #6ee7b7; /* mint */
+      --muted: #94a3b8;
+      --glass: rgba(255,255,255,0.06);
+      --radius: 14px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+  
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg1) 0%, #071023 100%);color:#e6eef8}
+    a{color:inherit;text-decoration:none}
+
+    /* NAVBAR */
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;padding:18px 28px;position:fixed;left:0;right:0;top:12px;z-index:30;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));-webkit-backdrop-filter: blur(6px);backdrop-filter: blur(6px);border-radius:12px;margin:0 20px;box-shadow:0 6px 20px rgba(2,6,23,0.6);
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#0ea5a3,#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:800;color:white}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{padding:8px 12px;border-radius:8px;color:var(--muted);font-weight:600}
+    .nav-links a:hover{color:var(--accent);transform:translateY(-1px)}
+
+    /* Mobile menu */
+    .menu-toggle{display:none;border:0;background:transparent;color:var(--muted);font-size:20px}
+    @media (max-width:900px){
+      .nav{padding:12px 18px}
+      .nav-links{display:none}
+      .menu-toggle{display:block}
+    }
+
+    /* HERO LAYOUT */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;min-height:calc(100vh - 40px);padding:120px 80px 80px}
+    @media (max-width:1000px){.hero{grid-template-columns:1fr;padding:120px 30px 60px}}
+
+    .hero-left{max-width:850px}
+    h1{font-size:clamp(28px,6vw,48px);margin:0 0 12px;line-height:1.02;font-weight:800;letter-spacing:-0.02em}
+    .title-line{display:block;color:var(--accent)}
+    p.lead{color:var(--muted);font-size:16px;line-height:1.6;margin:16px 0 22px}
+
+    .ctas{display:flex;gap:12px;align-items:center}
+    .btn{padding:12px 16px;border-radius:10px;font-weight:700;cursor:pointer;border:0}
+    .btn-primary{background:linear-gradient(90deg,#10b981,#06b6d4);color:#04202a}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* Right card */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:22px;border-radius:18px;box-shadow:0 12px 30px rgba(2,6,23,0.6);-webkit-backdrop-filter: blur(8px);backdrop-filter: blur(8px)}
+    .profile{display:flex;gap:14px;align-items:center}
+
+        .avatar-img {width: 84px; height: 84px; border-radius: 14px; object-fit: cover;}
+
+    .meta{display:flex;flex-direction:column}
+    .meta .name{font-weight:700}
+    .meta .sub{color:var(--muted);font-size:13px}
+
+    .stats{display:flex;gap:12px;margin-top:16px}
+    .stat{background:var(--glass);padding:10px 12px;border-radius:12px;font-weight:700;font-size:13px}
+
+    /* Decorative blob */
+    .blob{position:absolute;right:-120px;top:20vh;opacity:0.18;filter:blur(40px);transform:rotate(8deg);pointer-events:none}
+    @media (max-width:1000px){.blob{display:none}}
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+
+    /* subtle entrance animation */
+    .fade-up{opacity:0;transform:translateY(8px);animation:up 800ms cubic-bezier(.2,.9,.2,1) forwards}
+    .delay-1{animation-delay:120ms}
+    .delay-2{animation-delay:220ms}
+    .delay-3{animation-delay:320ms}
+    @keyframes up{to{opacity:1;transform:none}}
+
+    /* focus styles for accessibility */
+    a:focus, button:focus{outline:3px solid rgba(99,102,241,0.18);outline-offset:3px}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav" role="banner">
+    <div class="brand">
+      <div class="logo">RF</div>
+      <div>
+        <div style="font-weight:800">Romeo Fember</div>
+        <div style="font-size:12px;color:var(--muted)">IT Student • Aspiring Software Developer</div>
+      </div>
+    </div>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+  </header>
+
+  <!-- MOBILE MENU (hidden by default) -->
+  <div id="mobileMenu" style="display:none;position:fixed;inset:auto 18px 18px;top:80px;background:rgba(2,6,23,0.7);padding:14px;border-radius:12px;z-index:29">
+    <a href="index.html" style="display:block;padding:10px 6px;color:var(--muted)">Home</a>
+    <a href="about.html" style="display:block;padding:10px 6px;color:var(--muted)">About</a>
+    <a href="skills.html" style="display:block;padding:10px 6px;color:var(--muted)">Skills</a>
+    <a href="projects.html" style="display:block;padding:10px 6px;color:var(--muted)">Projects</a>
+    <a href="experience.html" style="display:block;padding:10px 6px;color:var(--muted)">Experience</a>
+    <a href="contact.html" style="display:block;padding:10px 6px;color:var(--muted)">Contact</a>
+  </div>
+
+  <!-- HERO and main section -->
+  <main class="hero" role="main">
+    <div class="hero-left">
+      <span class="fade-up delay-1 muted">Hello — I build things on the web</span>
+      <h1 class="fade-up delay-2">Hi, I'm <span class="title-line">Romeo Fember</span></h1>
+      <p class="lead fade-up delay-3">I'm a full-time IT student at STADIO Higher Education and aspiring software developer focused on building clean, accessible general web and mobile applications using various languages. I enjoy solving practical problems and turning ideas into stable, maintainable projects.</p>
+
+      <div class="ctas fade-up delay-3">
+        <a class="btn btn-primary" href="about.html">Learn More</a>
+       <!--Include a projects tab-->
+      </div>
+
+      <div style="margin-top:26px;color:var(--muted);font-size:13px">Im available for internships & part-time roles — open to learning and collaboration.</div>
+    </div>
+
+        <aside class="card fade-up delay-2" aria-label="Quick profile card">
+        <div class="profile">
+            <img class="avatar-img" src="newavatar.jpeg" alt="Romeo Fember" />
+            <div class="meta">
+            <div class="name">Romeo Fember</div>
+            <div class="sub">IT Student • Software Engineer (aspiring)</div>
+            </div>
+        </div>
+
+      <div class="stats" role="list"> <!--my skillset languages-->
+        <div class="stat" role="listitem">Languages: PHP • JS • Python • Java • SQL • Asp.net </div>
+        <div class="stat" role="listitem">Tools: git • VS Code • MySQL</div>
+      </div>
+
+      <div style="margin-top:16px;font-size:13px;color:var(--muted)">Quick links</div>
+      <div style="display:flex;gap:10px;margin-top:10px">
+        <a class="btn btn-ghost" href="contact.html">Contact</a>
+        <a class="btn btn-ghost" href="Romeo Fember CV .pdf">Resume</a>
+      </div>
+    </aside>
+
+    <!-- decorative blob -->
+    <svg class="blob" width="620" height="480" viewBox="0 0 620 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g opacity="0.9">
+        <path d="M462.5 44.8C500.2 84.6 528.8 129.7 520.1 176.9C511.4 224.1 464.4 273.4 420.9 313.2C377.4 353 337.5 383.4 288.6 402.1C239.7 420.8 181.8 427.8 136.9 405.9C92.05 383.9 60.12 332.9 39.39 283.6C18.67 234.3 9.132 186.8 31.1 145.4C53.08 104 106.6 68.8 152.6 39.9C198.7 11 232.5 5.2 281.6 12.4C330.7 19.7 424.8 4.9 462.5 44.8Z" fill="url(#g)" />
+      </g>
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#06b6d4" />
+          <stop offset="1" stop-color="#7c3aed" />
+        </linearGradient>
+      </defs>
+    </svg>
+
+  </main>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const btn = document.querySelector('.menu-toggle');
+      const menu = document.getElementById('mobileMenu');
+      if(!btn || !menu) return;
+      btn.addEventListener('click', ()=>{
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        menu.style.display = expanded ? 'none' : 'block';
+      });
+
+      // Simple entrance animations for elements already have CSS animations
+      document.querySelectorAll('.fade-up').forEach((el, idx)=>{
+        el.style.animationDelay = (idx * 80 + 120) + 'ms';
+      });
+    })();
+  </script>
+</body>
+</html>

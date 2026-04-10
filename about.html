@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Romeo Fember</title>
+
+  <style>
+  /* ===== GLOBAL: HERO THEME APPLIED ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #0B0F1A, #1A2333);
+  color: #f4f4f4;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== NAVIGATION (GLASS) ===== */
+header {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+header .logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+header nav a {
+  margin-left: 24px;
+  text-decoration: none;
+  color: #d6d6d6;
+  font-weight: 500;
+  transition: 0.23s;
+}
+
+header nav a:hover {
+  color: #ffffff;
+}
+
+/* ===== PAGE CONTENT WRAPPER ===== */
+.container {
+  max-width: 950px;
+  margin: 70px auto;
+  padding: 0 20px;
+}
+
+/* ===== PROFILE SECTION (GLASS CARD) ===== */
+.about-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 35px;
+
+  background: rgba(255, 255, 255, 0.06);
+  padding: 40px 30px;
+  border-radius: 18px;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===== PROFILE IMAGE ===== */
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+/* ===== NAME TEXT ===== */
+.name {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* ===== DOWNLOAD CV BUTTON ===== */
+.download-btn {
+  margin-top: 12px;
+  padding: 12px 26px;
+  background: #14f1c2;
+  color: #000;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.25s;
+}
+
+.download-btn:hover {
+  background: #11caa1;
+  transform: translateY(-3px);
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 30px 0 10px;
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.18);
+}
+
+/* ===== PARAGRAPH TEXT ===== */
+.about-text {
+  font-size: 1.05rem;
+  color: #cfcfcf;
+  margin-bottom: 18px;
+}
+
+/* ===== FADE-IN SCROLL ANIMATION ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Romeo Fember</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- PROFILE + CV BUTTON -->
+    <div class="about-profile fade-in">
+      <img src="avatar.jpeg" alt="Romeo Fember" class="profile-pic">
+      <div class="name">Romeo Fember</div>
+      <a href="Romeo Fember CV .pdf" download class="download-btn">Download CV</a>  <!--downloadable CV-->
+    </div>
+
+    <div class="section-title fade-in">About Me</div>
+
+    <p class="about-text fade-in"> <!--about me part 1-->
+      My name is Romeo Fember and I am a third-year full-time IT student at STADIO Higher Education with a strong passion for software development,
+      cybersecurity application development, AI development and Machine Learning and creating clean, functional digital experiences. 
+      I thrive when solving logical problems, building systems from scratch, and continuously learning how to write better, smarter code.
+    </p>
+
+    <p class="about-text fade-in">  <!--about me part 2-->
+      I enjoy working on real-world projects that help people and businesses operate more efficiently.
+      I see every project I create as an opportunity to grow, improve, and bring ideas to life through software.
+    </p>
+
+    <p class="about-text fade-in">  <!--part 3 of about me-->
+      My goal is to become a professional software engineer, specializing in web applications, backend logic, 
+      software security systems, networking and AI systems. I’m constantly improving my skills and pushing myself to create meaningful,
+      well-structured solutions.
+    </p>
+
+  </div>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const elements = document.querySelectorAll('.fade-in');
+
+    const observe = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observe.observe(el));
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
